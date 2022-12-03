@@ -9,7 +9,13 @@ dockerpath=12110161/kubenetes-predict
 
 # Step 2
 # Run the Docker Hub container with kubernetes
-kubectl apply -f deployment.yaml
+rpod=$(kubectl get pod kubenetes-predict 2> /dev/null;echo $?)
+if [ "_$rpod" == "_1" ] ; then
+        kubectl run kubenetes-predict \
+        --image=$dockerpath \
+        --image-pull-policy="Always" \
+        --overrides='{"apiVersion": "v1", "spec":{"imagePullSecrets": [{"name": "secretkey"}]}}'
+fi
 
 # Step 3:
 # List kubernetes pods
@@ -17,4 +23,4 @@ kubectl get pods
 
 # Step 4:
 # Forward the container port to a host
-kubectl apply -f service.yaml
+kubectl port-forward kubenetes-predict 8080:80
