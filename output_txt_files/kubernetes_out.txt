@@ -1,3 +1,16 @@
+Main Terminal:
+(.devops) sangnt7:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ kubectl get pods
+NAME                  READY   STATUS    RESTARTS   AGE
+kubenetes-predict     1/1     Running   0          27s
+web-d76f7df9c-c5lzp   1/1     Running   0          3m58s
+(.devops) sangnt7:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_kubernetes.sh
+NAME                  READY   STATUS    RESTARTS   AGE
+kubenetes-predict     1/1     Running   0          31s
+web-d76f7df9c-c5lzp   1/1     Running   0          4m2s
+Forwarding from 127.0.0.1:8080 -> 80
+Forwarding from [::1]:8080 -> 80
+
+Second Terminal:
 * Serving Flask app "app" (lazy loading)
  * Environment: production
    WARNING: Do not use the development server in a production environment.
@@ -28,10 +41,3 @@
 [2022-12-03 13:45:36,340] INFO in app: Prediction: [20.35373177134412]
 172.17.0.1 - - [03/Dec/2022 13:45:36] "POST /predict HTTP/1.1" 200 -
 
---- port
-(.devops) sangnt7:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./make_prediction.shPort: 8000
-{
-  "prediction": [
-    20.35373177134412
-  ]
-}
