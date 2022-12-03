@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/HungNguyen686868/kubenetes/tree/main.svg?style=svg)](https://app.circleci.com/pipelines/github/12110161/microservice-kubernetes?branch=master)
 
 ## Project Overview
 
